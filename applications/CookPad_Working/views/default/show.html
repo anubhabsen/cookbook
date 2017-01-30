@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="UTF-8">
+    <title>The Recipe</title>
+     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    
+    <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css'>
+<link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
+<link rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic'>
+  </head>
+    <style>
+    .food{
+        font-color: green;
+    }
+</style><style>
+    .backgroundimage{
+    background-image: url(http://static1.squarespace.com/static/526c91eee4b0c72bb55e8018/t/526f6046e4b0cc2a0703a41f/1383030977158/food+image.jpg);
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+    }
+    .quote{
+        padding-top: 20%;
+        padding-bottom: 20%;
+        text-align: center;
+        font-color: white;
+        font-size: 32px;
+    }
+    .trans{
+        background-color: rgba(190, 190, 170, 0.5);
+        padding-top: -10%;
+        padding-bottom: -10%;
+        padding-left: -10%;
+        padding-right: -10%;
+        margin-bottom: 10%;
+    }
+</style>
+      {{extend 'layout.html'}}
+        <nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
+    <div class="container topnav">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+        <a class="navbar-brand topnav" href="http://web.iiit.ac.in/~anubhab.sen/" target="_blank">Anubhab Sen</a>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="http://127.0.0.1:8000/CookPad_Working/default/index.html">Home</a>
+          </li>
+          <li>
+            <a href="http://127.0.0.1:8000/CookPad_Working/default/upload.html">Upload</a>
+          </li>
+          <li>
+            <a href="http://127.0.0.1:8000/CookPad_Working/default/list.html?id=0">All Recipes</a>
+          </li>
+          <li>
+              <a href="http://127.0.0.1:8000/CookPad_Working/default/myrecipe.html">My Recipes</a>
+          </li>
+          <li>
+              <a href = "http://127.0.0.1:8000/CookPad_Working/default/manage.html">Admin Manage</a>
+          </li>
+            <li>
+                <a href = "http://127.0.0.1:8000/CookPad_Working/default/usermanage.html">Manage</a>
+            </li>
+          <li>
+            <a href="http://127.0.0.1:8000/CookPad_Working/default/user/login?_next=/CookPad_Working/default/index">Log-in</a>
+          </li>
+          <li>
+              <a href="http://127.0.0.1:8000/CookPad_Working/default/user/register">Sign Up/ Change</a>
+          </li>
+          <li>
+              <a href="http://127.0.0.1:8000/CookPad_Working/default/user/logout?_next=/CookPad_Working/default/index">Log Out</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+{{extend 'layout.html'}}
+<h1 class = "bg-success" style="text-align:center; font-size-30px;">Recipe: {{=recipe.title}}</h1>
+<center>
+<img width="50%" class = "thumbnail img-responsive"
+     src="{{=URL('download', args=recipe.image)}}" />
+</center>
+    <br><br>
+<center>
+<img width="50%" class = "thumbnail img-responsive"
+     src="{{=URL('download', args=recipe.image2)}}" />
+</center>
+    <br><br>
+<center>
+<img width="50%" class = "thumbnail img-responsive"
+     src="{{=URL('download', args=recipe.image3)}}" />
+</center>
+    <br><br>
+<h2 style="color: #666666;">
+    Duration to prepare: {{=recipe.duration}}
+</h2>
+<h2 class = "bg-warning" style="color:#666666;">
+    Ingredients Required: {{=recipe.ingredients}}
+</h2>
+<h2 style="color: #666666;">
+    Cuisine: {{=recipe.cuisine}}
+</h2>
+<h2 style="color: #666666;">
+    Class: {{=recipe.classer}}
+    </h2>
+<h2 style="color:#666666;">
+    Procedure: {{=recipe.body}}
+</h2>
+        {{if liked:}}
+            {{=A('Liked | ' + str(likes), _class='btn btn-primary', _href=URL('unlike', args=request.args))}}
+        {{else:}}
+            {{=A('Like | ' + str(likes), _class='btn btn-primary', _href=URL('like', args=request.args))}}
+        {{pass}}
+<br>
+    <a href="http://127.0.0.1:8000/CookPad_Working/default/list.html?id=0">Goto All Recipes</a>
+<br>
+<br><br>

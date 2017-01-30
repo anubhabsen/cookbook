@@ -1,0 +1,9 @@
+2016-03-28 23:04:41,847 - web2py - WARNING - email not sent
+----------------------------------------
+From: you@gmail.com
+To: anubhabsen@gmail.com
+Subject: Password reset
+
+Click on the link http://127.0.0.1:8000/CookPad/default/user/reset_password?key=1459186481-28ed29c8-8707-48af-b431-83e9ce32a88c to reset your password
+----------------------------------------
+

@@ -1,0 +1,81 @@
+<style>
+    .backgroundimage{
+    background-image: url(http://gourmetfoodclub.co.uk/wp-content/uploads/2013/05/gourmet_food_club_2.jpg);
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+    }
+    .quote{
+        padding-top: 20%;
+        padding-bottom: 20%;
+        text-align: center;
+        font-color: white;
+        font-size: 32px;
+    }
+    .trans{
+        background-color: rgba(190, 190, 170, 0.5);
+        padding-top: -10%;
+        padding-bottom: -10%;
+        padding-left: -10%;
+        padding-right: -10%;
+        margin-bottom: 10%;
+    }
+</style>
+<head>
+  <title>Upload a new one</title>
+</head>
+      {{extend 'layout.html'}}
+        <nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
+    <div class="container topnav">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+        <a class="navbar-brand topnav" href="http://web.iiit.ac.in/~anubhab.sen/" target="_blank">Anubhab Sen</a>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="index.html">Home</a>
+          </li>
+          <li>
+            <a href="upload.html">Upload</a>
+          </li>
+          <li>
+            <a href="list.html?id=0">All Recipes</a>
+          </li>
+          <li>
+              <a href="myrecipe.html">My Recipes</a>
+          </li>
+          <li>
+              <a href="manage.html">Admin Manage</a>
+          </li>
+            <li>
+                <a href = "usermanage.html">Manage</a>
+            </li>
+          <li>
+            <a href="user/login?_next=/CookPad/default/index">Log-in</a>
+          </li>
+          <li>
+              <a href="user/register">Sign Up/ Change</a>
+          </li>
+          <li>
+              <a href="user/logout?_next=/CookPad/default/index">Log Out</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+      <div class="backgroundimage">
+          <div class="trans">
+              <p class="quote">
+                    There's no better feeling in the world than a warm pizza box on your lap.
+              </p>
+          </div>
+      </div>
+<h1>Share your magic with the world</h1>
+{{=form}}

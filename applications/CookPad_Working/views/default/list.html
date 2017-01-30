@@ -1,0 +1,119 @@
+<head>
+    <meta charset="UTF-8">
+    <title>List</title>
+     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    
+    <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css'>
+<link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
+<link rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic'>
+
+        <link rel="stylesheet" href="index.css">    
+  </head>
+
+  <body>
+
+    <head>
+  <title>List of All</title>
+</head>
+<style>
+    .backgroundimage{
+    background-image: url(http://static1.squarespace.com/static/526c91eee4b0c72bb55e8018/t/526f6046e4b0cc2a0703a41f/1383030977158/food+image.jpg);
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+    }
+    .quote{
+        padding-top: 20%;
+        padding-bottom: 20%;
+        text-align: center;
+        font-color: white;
+        font-size: 32px;
+    }
+    .trans{
+        background-color: rgba(190, 190, 170, 0.5);
+        padding-top: -10%;
+        padding-bottom: -10%;
+        padding-left: -10%;
+        padding-right: -10%;
+        margin-bottom: 10%;
+    }
+</style>
+      {{extend 'layout.html'}}
+        <nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
+    <div class="container topnav">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+        <a class="navbar-brand topnav" href="http://web.iiit.ac.in/~anubhab.sen/" target="_blank">Anubhab Sen</a>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="index.html">Home</a>
+          </li>
+          <li>
+            <a href="upload.html">Upload</a>
+          </li>
+          <li>
+            <a href="list.html?id=0">All Recipes</a>
+          </li>
+          <li>
+              <a href="myrecipe.html">My Recipes</a>
+          </li>
+          <li>
+              <a href = "manage.html">Admin Manage</a>
+          </li>
+            <li>
+                <a href = "usermanage.html">Manage</a>
+            </li>
+          <li>
+            <a href="user/login?_next=/CookPad_Working/default/index">Log-in</a>
+          </li>
+          <li>
+              <a href="user/register">Sign Up/ Change</a>
+          </li>
+          <li>
+              <a href="user/logout?_next=/CookPad_Working/default/index">Log Out</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+      <div class="backgroundimage">
+          <div class="trans">
+              <p class="quote">
+                  There is no sincerer love than the love of food. 
+              </p>
+          </div>
+      </div>
+<h1>Here flows the recipes</h1>
+<a href = "{{=URL('list.html?id=%s'%k)}}">Next</a>
+&nbsp&nbsp&nbsp&nbsp
+<a href = "{{=URL('list.html?id=%s'%back)}}">Back</a>
+      <br><br><br>
+<table border cellspacing = 10 class="table table-hover table-responsive">
+    <tr>
+        <th>Title</th>
+        <th>Presentation</th>
+        <th>Made On</th>
+        <th>Chef</th>
+    </tr>
+    {{for i,rcp in enumerate(recipes):}}
+    <tr>
+        <td><a href = "{{=URL('show', args = rcp.id)}}">{{=rcp.title}}</a></td>
+        <td><img src="{{=URL('download', args = rcp.image)}}" height = "150px" alt="Food image" /></td>
+        <td>{{=rcp.created_on}}</td>
+        <td>{{=rcp.created_by.first_name}} {{=rcp.created_by.last_name}}</td>
+    </tr>
+    {{pass}}
+</table>
